@@ -4,7 +4,7 @@
   <% @specie.sightings.each do |sighting| %>
     <li>Date: <%= sighting.date %>,
        Position <%= sighting.latitude %>° <%= sighting.longitude %>° |
-      <a href="/species/<%= @specie.id %>/sightings/edit">Edit</a> |
+      <a href="/species/<%= @specie.id %>/sightings/<%= sighting.id %>/edit">Edit</a> |
       <a href="/species/<%= @specie.id %>/sightings/<%= sighting.id %>"
       data-confirm="You sure?"
       data-method="delete"

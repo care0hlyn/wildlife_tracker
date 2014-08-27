@@ -18,4 +18,19 @@ class SightingsController < ApplicationController
     @specie = Species.find(params[:specie_id])
     render('sightings/index.html.erb')
   end
+
+  def edit
+    @sighting = Sighting.find(params[:id])
+    render('sightings/edit.html.erb')
+  end
+
+  def update
+    @specie = Species.find(params[:specie_id])
+    @sighting = Sighting.find(params[:id])
+    if @sighting.update(params[:sighting])
+      render('sightings/index.html.erb')
+    else
+      render('sightings/edit.html.erb')
+    end
+  end
 end
