@@ -4,7 +4,7 @@
 
 <ul>
   <% @species.sort.each do |specie| %>
-    <li><%= specie.name %> |
+    <li><a href="/species/<%= specie.id %>"><%= specie.name %></a> |
       <a href="/species/<%= specie.id %>/edit">Edit</a> |
       <a href="/species/<%= specie.id %>"
       data-confirm="You sure?"
