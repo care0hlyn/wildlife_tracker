@@ -5,4 +5,5 @@ class Sighting < ActiveRecord::Base
   validates :species_id, :numericality => {only_integer: true}
 
   belongs_to :species
+  belongs_to :region
 end

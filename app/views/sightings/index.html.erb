@@ -2,24 +2,32 @@
 
 <ul>
   <% @specie.sightings.each do |sighting| %>
-    <li>Date: <%= sighting.date %>,
-       Position <%= sighting.latitude %>° <%= sighting.longitude %>° |
+    <li>Date: <%= sighting.date %><br>
+       Position: <%= sighting.latitude %>° <%= sighting.longitude %>° |
       <a href="/species/<%= @specie.id %>/sightings/<%= sighting.id %>/edit">Edit</a> |
       <a href="/species/<%= @specie.id %>/sightings/<%= sighting.id %>"
       data-confirm="You sure?"
       data-method="delete"
-      rel="nofollow">Delete</a>
+      rel="nofollow">Delete</a><br>
+      Region: <%= sighting.region.name%>
     </li>
   <% end %>
 </ul>
 
 <form action="/species/<%= @specie.id %>/sightings" method="post">
   <label for="sightings_date"></label>
-  <input id="sightings_date" name="sightings[date]" type="text" value="<%= @sighting.date %>">
+  <input id="sightings_date" name="sightings[date]" type="date" value="<%= @sighting.date %>">
     <label for="sightings_latitude"></label>
   <input id="sightings_latitude" name="sightings[latitude]" type="text" value="<%= @sighting.latitude %>">
     <label for="sightings_longitude"></label>
   <input id="sightings_longitude" name="sightings[longitude]" type="text" value="<%= @sighting.longitude %>">
+  <label for="sightings_region"></label>
+  <select name="sightings[region_id]">
+    <option value="1">North</option>
+    <option value="2">South</option>
+    <option value="3">East</option>
+    <option value="4">West</option>
+  </select>
   <button>Create Sighting</button>
 </form>
 
