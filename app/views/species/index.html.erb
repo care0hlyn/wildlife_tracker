@@ -1,0 +1,25 @@
+<h1>Wildlife Tracker</h1>
+
+<h2>Species currently being tracked</h2>
+
+<ul>
+  <% @species.each do |specie| %>
+    <li><%= specie.name %></li>
+  <% end %>
+</ul>
+
+
+<% if @specie.errors.any? %>
+  <h3>Please fix the following errors: </h3>
+  <ul>
+    <% @specie.errors.full_messages.each do |message|%>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<form action="/species" method="post">
+  <label for="species_name"></label>
+  <input id="species_name" name="species[name]" type="text" value="<%= @specie.name %>">
+  <button>Create Species</button>
+</form>
