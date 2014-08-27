@@ -3,7 +3,7 @@
 <h2>Species currently being tracked</h2>
 
 <ul>
-  <% @species.each do |specie| %>
+  <% @species.sort.each do |specie| %>
     <li><%= specie.name %> |
       <a href="/species/<%= specie.id %>/edit">Edit</a> |
       <a href="/species/<%= specie.id %>"
