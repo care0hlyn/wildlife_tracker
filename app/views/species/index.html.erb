@@ -4,10 +4,15 @@
 
 <ul>
   <% @species.each do |specie| %>
-    <li><%= specie.name %></li>
+    <li><%= specie.name %> |
+      <a href="/species/<%= specie.id %>/edit">Edit</a> |
+      <a href="/species/<%= specie.id %>"
+      data-confirm="You sure?"
+      data-method="delete"
+      rel="nofollow">Delete</a>
+    </li>
   <% end %>
 </ul>
-
 
 <% if @specie.errors.any? %>
   <h3>Please fix the following errors: </h3>
